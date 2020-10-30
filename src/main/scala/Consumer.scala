@@ -23,7 +23,7 @@ object Consumer {
       .selectExpr("CAST(value AS STRING)")
       .repartition(50)
       .writeStream
-      .format("parquet")
+      .format("csv")
       .option("format", "append")
       .option("path", conf.getString("consumer.output"))
       .option("checkpointLocation", conf.getString("consumer.checkpoint"))
